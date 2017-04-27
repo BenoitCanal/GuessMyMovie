@@ -27,6 +27,7 @@ class App extends Component {
                         <Route exact path="/game" component={GameModeSelector}/>
                         <Route exact path="/endOfGame" component={EndOfGame}/>
                         <Route exact path="/ranking" component={Ranking}/>
+                        <Route exact path="/exit" component={Exit}/>
                     </div>
                 </div>
             </Router>
