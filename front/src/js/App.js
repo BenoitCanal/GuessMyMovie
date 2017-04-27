@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import logo from './../assets/img/logo.svg';
-import './../css/App.css';
+import logo from '../assets/img/LOGO GTM NOIR SANS FOND.png';
+import '../css/App.css';
 
 import {
     BrowserRouter as Router,
