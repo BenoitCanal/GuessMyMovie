@@ -1,1 +1,269 @@
 @import url("./reset.css");
+@import url("./fonts.css");
+/*=======================*/
+/* VARIABLES, FUNCTIONS
+/*=======================*/
+/*=======================*/
+/* MIXINS
+/*=======================*/
+/*=======================*/
+/* 12 COLUMNS RESPONSIVE GRID
+/*=======================*/
+.row {
+  display: flex; }
+
+.col_h {
+  width: 4.16667%; }
+
+.col_1 {
+  width: 8.33333%; }
+
+.col_1h {
+  width: 12.5%; }
+
+.col_2 {
+  width: 16.66667%; }
+
+.col_2h {
+  width: 20.83333%; }
+
+.col_3 {
+  width: 25%; }
+
+.col_3h {
+  width: 29.16667%; }
+
+.col_4 {
+  width: 33.33333%; }
+
+.col_4h {
+  width: 37.5%; }
+
+.col_5 {
+  width: 41.66667%; }
+
+.col_5h {
+  width: 45.83333%; }
+
+.col_6 {
+  width: 50%; }
+
+.col_6h {
+  width: 54.16667%; }
+
+.col_7 {
+  width: 58.33333%; }
+
+.col_7h {
+  width: 62.5%; }
+
+.col_8 {
+  width: 66.66667%; }
+
+.col_8h {
+  width: 70.83333%; }
+
+.col_9 {
+  width: 75%; }
+
+.col_9h {
+  width: 79.16667%; }
+
+.col_10 {
+  width: 83.33333%; }
+
+.col_10h {
+  width: 87.5%; }
+
+.col_11 {
+  width: 91.66667%; }
+
+.col_11h {
+  width: 95.83333%; }
+
+.col_12 {
+  width: 100%; }
+
+/*=======================*/
+/* GENERAL RULES
+/*=======================*/
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: rgba(255, 255, 255, 0.15); }
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.75); }
+
+* {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  cursor: inherit;
+  box-sizing: border-box; }
+
+html, body {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; }
+
+html {
+  background: #000;
+  font-family: "CanalDemiRomain", sans-serif;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: #FFF;
+  font-style: italic; }
+
+body {
+  transform-origin: 50%;
+  width: 100%;
+  height: 100%;
+  cursor: default; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+  cursor: auto; }
+
+hr {
+  position: relative;
+  width: calc(100% - 17.5px);
+  margin-left: 7.5px; }
+
+hr:after, hr:before {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border: 1px #FFF solid;
+  transform: rotate(45deg);
+  top: -2.5px; }
+
+hr:after {
+  left: -7.5px; }
+
+hr:before {
+  right: -8.5px; }
+
+::-webkit-input-placeholder {
+  letter-spacing: 0; }
+
+:-moz-placeholder {
+  letter-spacing: 0; }
+
+::-moz-placeholder {
+  letter-spacing: 0; }
+
+:-ms-input-placeholder {
+  letter-spacing: 0; }
+
+::selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none; }
+
+::-moz-selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none; }
+
+#app {
+  width: 100%;
+  height: 100%;
+  position: absolute; }
+
+.weight-medium {
+  font-weight: 500; }
+
+.weight-bold {
+  font-weight: 700; }
+
+.flex-justify-sb {
+  justify-content: space-between; }
+
+.flex-justify-start {
+  justify-content: flex-start; }
+
+.fontsize-small {
+  font-size: .75em;
+  margin-right: .5em; }
+
+/*@media (orientation: portrait) {
+    body {
+        background: #000 url(../assets/img/rotateDevice.png) no-repeat 50% 50%;
+        background-size: 30%;
+    }
+
+    #app { visibility: hidden; }
+}*/
+/*=======================*/
+/* COMPONENTS
+/*=======================*/
+/* CONTAINERS ------------*/
+.screen {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0; }
+
+#topScreensWrapper {
+  position: relative; }
+
+/*=======================*/
+/* HEADER
+/*=======================*/
+#header {
+  position: absolute;
+  z-index: 9999;
+  padding: 50px 50px 0 50px; }
+  #header .header-logo {
+    width: 196px;
+    height: auto;
+    opacity: 1;
+    -webkit-transition: -webkit-opacity .4s;
+    -ms-transition: -ms-opacity .4s;
+    transition: opacity .4s; }
+    #header .header-logo.is--hidden {
+      opacity: 0; }
+
+/*=======================*/
+/* HOME SCREEN
+/*=======================*/
+/* CONTAINER ------------*/
+.Home {
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+  .Home:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(../assets/img/wallpaper.png);
+    background-size: contain;
+    opacity: 0.15;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: -1; }
+  .Home_logo {
+    background: url(../assets/img/logoWhite.png);
+    width: 80%;
+    background-size: contain;
+    margin-top: 6em; }
+  .Home_menu {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    height: 250px;
+    background: #ECECEC;
+    color: black;
+    padding: 2em; }
+    .Home_menu-element {
+      padding: 0.5em;
+      border: 2px solid black;
+      margin-bottom: 1em; }

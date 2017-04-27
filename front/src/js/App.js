@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../assets/img/logoBlack.png';
 import '../css/App.css';
 
 import {
@@ -7,6 +6,7 @@ import {
     Route,
     Link
 } from 'react-router-dom'
+import {Home} from "./Home";
 import {Game} from "./Game";
 import {Score} from "./Score";
 import {Exit} from "./Exit";
@@ -18,14 +18,8 @@ class App extends Component {
         return (
             <Router>
                 <div className="App">
-                    <div className="App-header">
-                        <img src={logo} className="App-logo" alt="logo" />
-                        <h1>Guess the movie</h1>
-                        <h2><Link to="/game">JOUER</Link></h2>
-                        <h2><Link to="/score">SCORE</Link></h2>
-                        <h2><Link to="/exit">EXIT</Link></h2>
-                    </div>
-                    <div className="App-intro">
+                    <div className="App-wrapper">
+                        <Route exact path="/" component={Home}/>
                         {/*<Route path="/game" component={Game}/>*/}
                         <Route exact path="/game/ta" component={ThemeSelector}/>
                         <Route exact path="/game" component={GameModeSelector}/>
