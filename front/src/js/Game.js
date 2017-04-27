@@ -1,5 +1,6 @@
 import React from "react";
 import {Route} from "react-router-dom";
+import {EndOfGame} from "./EndOfGame";
 
 export class Game extends React.Component {
     URL = "http://localhost:9000";
@@ -11,16 +12,25 @@ export class Game extends React.Component {
             score: 0,
             answers: [],
             title: null,
-            img: null,
+            image: null,
+            isGameOver: false,
         };
     }
 
     render() {
-        if (this.state.image !== null) {
+        console.log(this.state);
+        if (this.state.isGameOver) {
+            return <EndOfGame score={this.state.score}/>
+        } else if (this.state.image) {
+            const answers = this.state.answers.map(ans => <button key={ans} onClick={() => this.doAnswer(ans)}>{ans}</button>);
             return (
-                <img src={this.state.image}/>
+                <div>
+                    <img src={this.state.image} width="640px"/>
+                    {answers}
+                </div>
             );
         }
+        else return null;
 
     }
 
@@ -32,12 +42,40 @@ export class Game extends React.Component {
     }
 
     componentDidMount() {
-        this.get(`${URL}/play`).then( resp =>
-            this.setState({
-                answers: resp.answers,
-                title: resp.title,
-                image: resp.image,
-            })
+        console.log("Test")
+        this.get(`${this.URL}/play/1`).then(resp =>
+            resp.json().then( body => {
+                    console.log(body)
+                    this.setState({
+                        answers: body.answers,
+                        title: body.title,
+                        image: body.image
+                    })
+                }
+            )
         )
+    }
+
+    doAnswer(answerByUser) {
+        console.log(answerByUser);
+        if (this.state.title === answerByUser) {
+            this.get(`${this.URL}/play/1`).then(resp =>
+                resp.json().then( body => {
+                    console.log(body);
+                    this.setState({
+                            answers: body.answers,
+                            title: body.title,
+                            image: body.image,
+                            score: this.state.score + 1
+                        })
+                    }
+                )
+            )
+        } else {
+            this.setState({
+                score: this.state.score,
+                isGameOver: true,
+            });
+        }
     }
 }
