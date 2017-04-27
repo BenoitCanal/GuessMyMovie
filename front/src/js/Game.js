@@ -6,6 +6,7 @@ export class Game extends React.Component {
     URL = "http://localhost:9000";
     session = Math.floor(Math.random() * 1000);
     playURL = `${this.URL}/play?sessionId=${this.session}`;
+    delta = 600;
 
     constructor(props) {
         super(props);
@@ -17,6 +18,7 @@ export class Game extends React.Component {
             image: null,
             isGameOver: false,
             history: [],
+            barWidth: 100,
         };
     }
 
@@ -29,6 +31,7 @@ export class Game extends React.Component {
             const answers = this.state.answers.map(ans => <button key={ans} onClick={() => this.doAnswer(ans)}>{ans}</button>);
             return (
                 <div>
+                    <div style={{width: `${this.state.barWidth}vw`, backgroundColor: "red", height: "10px"}}/>
                     <img src={this.state.image} style={{width: "100vw"}}/>
                     {answers}
                 </div>
@@ -45,6 +48,16 @@ export class Game extends React.Component {
         return window.fetch(URL, params);
     }
 
+    animation() {
+        console.log(this.state.barWidth)
+        if (this.state.barWidth === 0) {
+            this.setState({ isGameOver: true })
+        } else {
+            this.setState({ barWidth: this.state.barWidth - 1});
+            setTimeout(this.animation.bind(this), this.delta);
+        }
+    }
+
     componentDidMount() {
         console.log("Test")
         this.get(this.playURL).then(resp =>
@@ -58,12 +71,13 @@ export class Game extends React.Component {
                 }
             )
         )
+        setTimeout(this.animation.bind(this), this.delta);
     }
 
     doAnswer(answerByUser) {
         console.log(answerByUser);
-        this.state.history.push([this.state.image, this.state.title, true])
         if (this.state.title === answerByUser) {
+            this.state.history.push([this.state.image, this.state.title, true])
             this.get(this.playURL).then(resp => {
                 if (resp.status === 204) {
                     this.setState({
