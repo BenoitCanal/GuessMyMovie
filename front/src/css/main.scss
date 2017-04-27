@@ -1,1 +1,290 @@
 @import url("./reset.css");
+@import url("./fonts.css");
+
+
+/*=======================*/
+/* VARIABLES, FUNCTIONS
+/*=======================*/
+$uiAssetsPath      : "../assets/img/";
+$fontAssetsPath    : "../assets/fonts/";
+
+$globalMargin      : 50px;
+
+/*=======================*/
+/* MIXINS
+/*=======================*/
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  /*@-moz-keyframes #{$animation-name} {
+    @content;
+  }  */
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  /*@-o-keyframes #{$animation-name} {
+    @content;
+  }*/ 
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  //-moz-animation: #{$str};
+  -ms-animation: #{$str};
+  //-o-animation: #{$str};
+  animation: #{$str};      
+}
+
+@mixin transform($str) {
+  -webkit-transform: #{$str};
+  //-moz-transform: #{$str};
+  -ms-transform: #{$str};
+  //-o-transform: #{$str};
+  transform: #{$str};
+}
+
+@mixin transition($str) {
+  -webkit-transition: -webkit-#{$str};
+  //-moz-transition: -moz-#{$str};
+  -ms-transition: -ms-#{$str};
+  //-o-transition: -o-#{$str};
+  transition: #{$str};
+}
+
+@mixin fullSizeAbs ($content: false) {
+    @if $content { content: $content; }
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+@mixin remainingSpace () {
+    flex:1;
+    position: relative;
+}
+
+
+/*=======================*/
+/* 12 COLUMNS RESPONSIVE GRID
+/*=======================*/
+$gridWidthBase: 100% / 12;
+
+.row { display:flex; }
+.col_h { width: #{ $gridWidthBase * 0.5 }; }
+.col_1 { width: #{ $gridWidthBase * 1 }; }
+.col_1h { width: #{ $gridWidthBase * 1.5 }; }
+.col_2 { width: #{ $gridWidthBase * 2 }; }
+.col_2h { width: #{ $gridWidthBase * 2.5 }; }
+.col_3 { width: #{ $gridWidthBase * 3 }; }
+.col_3h { width: #{ $gridWidthBase * 3.5 }; }
+.col_4 { width: #{ $gridWidthBase * 4 }; }
+.col_4h { width: #{ $gridWidthBase * 4.5 }; }
+.col_5 { width: #{ $gridWidthBase * 5 }; }
+.col_5h { width: #{ $gridWidthBase * 5.5 }; }
+.col_6 { width: #{ $gridWidthBase * 6 }; }
+.col_6h { width: #{ $gridWidthBase * 6.5 }; }
+.col_7 { width: #{ $gridWidthBase * 7 }; }
+.col_7h { width: #{ $gridWidthBase * 7.5 }; }
+.col_8 { width: #{ $gridWidthBase * 8 }; }
+.col_8h { width: #{ $gridWidthBase * 8.5 }; }
+.col_9 { width: #{ $gridWidthBase * 9 }; }
+.col_9h { width: #{ $gridWidthBase * 9.5 }; }
+.col_10 { width: #{ $gridWidthBase * 10 }; }
+.col_10h { width: #{ $gridWidthBase * 10.5 }; }
+.col_11 { width: #{ $gridWidthBase * 11 }; }
+.col_11h { width: #{ $gridWidthBase * 11.5 }; }
+.col_12 { width: #{ $gridWidthBase * 12 }; }
+
+
+/*=======================*/
+/* GENERAL RULES
+/*=======================*/
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: rgba(255, 255, 255, 0.15);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0,0,0,0.75); 
+}
+
+* {
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    user-select:none;
+    cursor: inherit;
+    box-sizing: border-box;
+}
+
+html, body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+html {
+    background: #000;
+    font-family: "CanalDemiRomain", sans-serif;
+    font-weight: 300;
+    text-transform: uppercase;
+    color:#FFF;
+    font-style: italic; 
+}
+
+body {
+    transform-origin: 50%;
+    width: 100%;
+    height: 100%;
+    cursor:default;
+}
+
+a {
+    color:inherit;
+    text-decoration: none;
+    cursor:auto;
+}
+
+hr {
+    position: relative;
+    width: calc(100% - 17.5px);
+    margin-left: 7.5px;
+}
+
+hr:after, hr:before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border: 1px #FFF solid;
+    transform: rotate(45deg);
+    top: -2.5px;
+}
+
+hr:after { left: -7.5px; }
+hr:before { right: -8.5px; }
+
+::-webkit-input-placeholder { letter-spacing: 0; }
+:-moz-placeholder           { letter-spacing: 0; }
+::-moz-placeholder          { letter-spacing: 0; }
+:-ms-input-placeholder      { letter-spacing: 0; }
+
+::selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none; }
+::-moz-selection {
+  background: #000;
+  color: #FFF;
+  text-shadow: none; }
+
+#app {
+    @include fullSizeAbs();
+}
+
+.weight-medium      { font-weight: 500; }
+.weight-bold        { font-weight: 700; }
+.flex-justify-sb    { justify-content: space-between; }
+.flex-justify-start { justify-content: flex-start; }
+.fontsize-small     { font-size: .75em; margin-right: .5em; }
+
+/*@media (orientation: portrait) {
+    body {
+        background: #000 url(#{ $uiAssetsPath + "rotateDevice.png"}) no-repeat 50% 50%;
+        background-size: 30%;
+    }
+
+    #app { visibility: hidden; }
+}*/
+
+
+/*=======================*/
+/* COMPONENTS
+/*=======================*/
+/* CONTAINERS ------------*/
+.screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top:0;
+    left:0;
+}
+
+#topScreensWrapper {
+    position: relative;
+}
+
+
+/*=======================*/
+/* HEADER
+/*=======================*/
+#header {
+    position: absolute;
+    z-index: 9999;
+    padding: $globalMargin $globalMargin 0 $globalMargin;
+
+    & .header-logo {
+        width: 196px;
+        height: auto;
+        opacity: 1;
+        @include transition("opacity .4s");
+
+        &.is--hidden {
+            opacity: 0;
+        }
+    }
+}
+
+
+/*=======================*/
+/* HOME SCREEN
+/*=======================*/
+/* CONTAINER ------------*/
+.Home {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: url(#{$uiAssetsPath + 'wallpaper.png'});
+    background-size: contain;
+    opacity: 0.15;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    z-index: -1;
+  }
+
+  &_logo {
+    background: url(#{$uiAssetsPath + 'logoWhite.png'});
+    width: 80%;
+    background-size: contain;
+    margin-top: 6em;
+  }
+
+  &_menu {
+    width: 100%;
+    bottom: 0;
+    position: absolute;
+    height: 250px;
+    background: #ECECEC;
+    color: black;
+    padding: 2em;
+
+    &-element {
+      padding: 0.5em;
+      border: 2px solid black;
+      margin-bottom: 1em;
+    }
+  }
+}
