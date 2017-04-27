@@ -6,7 +6,7 @@ import {
 import logo from '../assets/img/logoWhite.png';
 
 export const Home = () => (
-    <section className="Home">
+    <section className="Home menuScreen">
         <img src={logo} className="Home_logo" alt="logo" />
         <ul className="Home_menu">
         	<li className="Home_menu-element"><Link to="/game">JOUER</Link></li>
