@@ -6,22 +6,38 @@ export class Game extends React.Component {
 
     constructor(props) {
         super(props);
+
+        this.state = {
+            score: 0,
+            answers: [],
+            title: null,
+            img: null,
+        };
     }
 
     render() {
-        return (
-            <img src="http://localhost:9000/assets/img/1.jpg"/>
-        );
+        if (this.state.image !== null) {
+            return (
+                <img src={this.state.image}/>
+            );
+        }
+
     }
 
     get(URL) {
         const params = {
             method: "GET"
         };
-        window.fetch(URL, params)
+        return window.fetch(URL, params);
     }
 
     componentDidMount() {
-        window.fetch(URL, )
+        get(`${URL}/play`).then( resp =>
+            this.setState({
+                answers: resp.answers,
+                title: resp.title,
+                image: resp.image,
+            })
+        )
     }
 }
