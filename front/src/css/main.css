@@ -243,15 +243,13 @@ hr:before {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff000000', endColorstr='#000000',GradientType=0 );
   /* IE6-9 */ }
-
-.Home_menu-element, .GameModeSelector_menu-element, .ThemeSelector_menu-element {
-  background: #26A8FF;
-  color: white;
-  width: 80%;
-  padding: 0.4em; }
-
-.Home_menu-element:not(:last-of-type), .GameModeSelector_menu-element:not(:last-of-type), .ThemeSelector_menu-element:not(:last-of-type) {
-  margin-bottom: 1em; }
+  .Home_menu-element, .GameModeSelector_menu-element, .ThemeSelector_menu-element {
+    background: #26A8FF;
+    color: white;
+    width: 80%;
+    padding: 0.4em; }
+    .Home_menu-element:not(:last-of-type), .GameModeSelector_menu-element:not(:last-of-type), .ThemeSelector_menu-element:not(:last-of-type) {
+      margin-bottom: 1em; }
 
 /*=======================*/
 /* HOME SCREEN
@@ -265,9 +263,8 @@ hr:before {
 
 .Home_menu-element {
   height: 50px; }
-
-.Home_menu-element a {
-  line-height: 2.5em; }
+  .Home_menu-element a {
+    line-height: 2.5em; }
 
 .GameModeSelector h1, .ThemeSelector h1 {
   font-size: 2em;
@@ -277,9 +274,16 @@ hr:before {
 
 .GameModeSelector_menu, .ThemeSelector_menu {
   padding-bottom: 4em; }
+  .GameModeSelector_menu-element, .ThemeSelector_menu-element {
+    height: 75px; }
+    .GameModeSelector_menu-element a, .ThemeSelector_menu-element a {
+      line-height: 4em; }
 
-.GameModeSelector_menu-element, .ThemeSelector_menu-element {
-  height: 75px; }
+/*=======================*/
+/* RANKING SCREEN
+/*=======================*/
+.Ranking_table {
+  margin: auto; }
 
-.GameModeSelector_menu-element a, .ThemeSelector_menu-element a {
-  line-height: 4em; }
+.Ranking_joueur {
+  text-align: left; }
