@@ -10,6 +10,8 @@ import {
 import {Game} from "./Game";
 import {Score} from "./Score";
 import {Exit} from "./Exit";
+import {ThemeSelector} from "./ThemeSelector";
+import {GameModeSelector} from "./GameModeSelector";
 
 class App extends Component {
     render() {
@@ -24,7 +26,9 @@ class App extends Component {
                         <h2><Link to="/exit">EXIT</Link></h2>
                     </div>
                     <div className="App-intro">
-                        <Route exact path="/game" component={Game}/>
+                        {/*<Route path="/game" component={Game}/>*/}
+                        <Route exact path="/game/ta" component={ThemeSelector}/>
+                        <Route exact path="/game" component={GameModeSelector}/>
                     </div>
                 </div>
             </Router>
