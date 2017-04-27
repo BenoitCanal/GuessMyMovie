@@ -211,6 +211,12 @@ hr:before {
   top: 0;
   left: 0; }
 
+.screen h1, .menuScreen h1 {
+  font-size: 2em;
+  line-height: 1.25;
+  font-family: "CanalLightRomain", sans-serif;
+  margin: 1em 0; }
+
 .menuScreen:after {
   content: "";
   position: absolute;
@@ -224,7 +230,7 @@ hr:before {
   pointer-events: none;
   z-index: -1; }
 
-.Home_menu, .GameModeSelector_menu, .ThemeSelector_menu {
+.Home_menu, .GameModeSelector_menu, .ThemeSelector_menu, .Game_answers {
   width: 100%;
   bottom: 0;
   position: absolute;
@@ -244,13 +250,13 @@ hr:before {
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff000000', endColorstr='#000000',GradientType=0 );
   /* IE6-9 */ }
 
-.Home_menu-element, .GameModeSelector_menu-element, .ThemeSelector_menu-element {
+.Home_menu-element, .GameModeSelector_menu-element, .ThemeSelector_menu-element, .Game_answers-element {
   background: #26A8FF;
   color: white;
   width: 80%;
   padding: 0.4em; }
 
-.Home_menu-element:not(:last-of-type), .GameModeSelector_menu-element:not(:last-of-type), .ThemeSelector_menu-element:not(:last-of-type) {
+.Home_menu-element:not(:last-of-type), .GameModeSelector_menu-element:not(:last-of-type), .ThemeSelector_menu-element:not(:last-of-type), .Game_answers-element:not(:last-of-type) {
   margin-bottom: 1em; }
 
 /*=======================*/
@@ -269,12 +275,6 @@ hr:before {
 .Home_menu-element a {
   line-height: 2.5em; }
 
-.GameModeSelector h1, .ThemeSelector h1 {
-  font-size: 2em;
-  line-height: 1.25;
-  font-family: "CanalLightRomain", sans-serif;
-  margin-top: 1em; }
-
 .GameModeSelector_menu, .ThemeSelector_menu {
   padding-bottom: 4em; }
 
@@ -283,3 +283,76 @@ hr:before {
 
 .GameModeSelector_menu-element a, .ThemeSelector_menu-element a {
   line-height: 4em; }
+
+/*=======================*/
+/* RANKING SCREEN
+/*=======================*/
+.Ranking_table {
+  margin: auto; }
+
+.Ranking_joueur {
+  text-align: left; }
+
+.Game h1 {
+  font-size: 1.25em; }
+
+.Game_header {
+  width: 100%;
+  height: 75px;
+  background: black;
+  display: flex;
+  align-items: center; }
+
+.Game_header-jokerSkip {
+  background: url(../assets/img/joker_skip.png);
+  height: 100%;
+  width: 33%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%; }
+
+.Game_header-jokerHalf {
+  background: url(../assets/img/joker_half.png);
+  height: 100%;
+  width: 33%;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: 50%; }
+
+.Game_header-score {
+  width: 33%;
+  font-size: 2em;
+  position: relative;
+  padding-top: 0.7em; }
+
+.Game_header-score:after {
+  content: "Score";
+  position: absolute;
+  left: 2.5em;
+  font-size: 0.45em;
+  top: -0.25em; }
+
+.Game_answers {
+  margin-bottom: 2em; }
+
+.Game_answers-element {
+  border: 0;
+  outline: none;
+  font-family: "CanalLightRomain", sans-serif;
+  font-size: 1.5em; }
+
+.Game_answers-element:not(:last-of-type) {
+  margin-bottom: 0.75em; }
+
+.Header {
+  width: 100%;
+  height: 75px;
+  background: black;
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+.Header_logo {
+  background: url(../assets/img/logoWhite.png);
+  height: 65%;
+  background-size: contain; }

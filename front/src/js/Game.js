@@ -3,7 +3,7 @@ import {Route} from "react-router-dom";
 import {EndOfGame} from "./EndOfGame";
 
 export class Game extends React.Component {
-    URL = "http://localhost:9000";
+    URL = "http://192.168.43.17:9000";
     session = Math.floor(Math.random() * 1000);
     playURL = `${this.URL}/play?sessionId=${this.session}`;
 
@@ -26,12 +26,20 @@ export class Game extends React.Component {
         if (this.state.isGameOver) {
             return <EndOfGame score={this.state.score}/>
         } else if (this.state.image) {
-            const answers = this.state.answers.map(ans => <button key={ans} onClick={() => this.doAnswer(ans)}>{ans}</button>);
+            const answers = this.state.answers.map(ans => <button key={ans} className="Game_answers-element" onClick={() => this.doAnswer(ans)}>{ans}</button>);
             return (
-                <div>
+                <section className="Game menuScreen">
+                    <header className="Game_header">
+                        <div className="Game_header-jokerHalf"></div>
+                        <div className="Game_header-score">{this.state.score}</div>
+                        <div className="Game_header-jokerSkip"></div>
+                    </header>
+                    <h1>De quel film vient cette image ?</h1>
                     <img src={this.state.image} style={{width: "100vw"}}/>
-                    {answers}
-                </div>
+                    <div className="Game_answers">
+                        {answers}
+                    </div>
+                </section>
             );
         }
         else return null;

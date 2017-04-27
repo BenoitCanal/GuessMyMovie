@@ -1,7 +1,7 @@
 import React from 'react'
 
 export const Exit = () => (
-    <div>
-        <h2>A Propos</h2>
-    </div>
+    <section className="Exit menuScreen">
+        <h1>A Propos</h1>
+    </section>
 )
