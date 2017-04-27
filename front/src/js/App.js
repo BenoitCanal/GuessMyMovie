@@ -22,7 +22,7 @@ class App extends Component {
                 <div className="App">
                     <div className="App-wrapper">
                         <Route exact path="/" component={Home}/>
-                        {/*<Route path="/game" component={Game}/>*/}
+                        <Route path="/game/ta/movies" component={Game}/>
                         <Route exact path="/game/ta" component={ThemeSelector}/>
                         <Route exact path="/game" component={GameModeSelector}/>
                         <Route exact path="/endOfGame" component={EndOfGame}/>
