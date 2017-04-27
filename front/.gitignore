@@ -19,3 +19,4 @@ yarn-error.log*
 # auto-compiled files
 main.css
 
+front/src/css/main.css
