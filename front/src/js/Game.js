@@ -4,6 +4,8 @@ import {EndOfGame} from "./EndOfGame";
 
 export class Game extends React.Component {
     URL = "http://localhost:9000";
+    session = Math.floor(Math.random() * 1000);
+    playURL = `${this.URL}/play?sessionId=${this.session}`;
 
     constructor(props) {
         super(props);
@@ -14,10 +16,12 @@ export class Game extends React.Component {
             title: null,
             image: null,
             isGameOver: false,
+            history: [],
         };
     }
 
     render() {
+        console.log(this.session);
         console.log(this.state);
         if (this.state.isGameOver) {
             return <EndOfGame score={this.state.score}/>
@@ -25,7 +29,7 @@ export class Game extends React.Component {
             const answers = this.state.answers.map(ans => <button key={ans} onClick={() => this.doAnswer(ans)}>{ans}</button>);
             return (
                 <div>
-                    <img src={this.state.image} width="640px"/>
+                    <img src={this.state.image} style={{width: "100vw"}}/>
                     {answers}
                 </div>
             );
@@ -43,7 +47,7 @@ export class Game extends React.Component {
 
     componentDidMount() {
         console.log("Test")
-        this.get(`${this.URL}/play/1`).then(resp =>
+        this.get(this.playURL).then(resp =>
             resp.json().then( body => {
                     console.log(body)
                     this.setState({
@@ -59,23 +63,42 @@ export class Game extends React.Component {
     doAnswer(answerByUser) {
         console.log(answerByUser);
         if (this.state.title === answerByUser) {
-            this.get(`${this.URL}/play/1`).then(resp =>
-                resp.json().then( body => {
-                    console.log(body);
+            this.get(this.playURL).then(resp => {
+                if (resp.status === 204) {
                     this.setState({
-                            answers: body.answers,
-                            title: body.title,
-                            image: body.image,
-                            score: this.state.score + 1
-                        })
-                    }
-                )
-            )
+                        isGameOver: true
+                    })
+                } else {
+                    resp.json().then(body => {
+                            console.log(body);
+                            this.setState({
+                                answers: body.answers,
+                                title: body.title,
+                                image: body.image,
+                                score: this.state.score + 1
+                            })
+                        }
+                    )
+                }
+            })
         } else {
-            this.setState({
-                score: this.state.score,
-                isGameOver: true,
-            });
+            this.get(this.playURL).then(resp => {
+                if (resp.status === 204) {
+                    this.setState({
+                        isGameOver: true
+                    })
+                } else {
+                    resp.json().then( body => {
+                            console.log(body);
+                            this.setState({
+                                answers: body.answers,
+                                title: body.title,
+                                image: body.image,
+                            })
+                        }
+                    )
+                }
+            })
         }
     }
 }
