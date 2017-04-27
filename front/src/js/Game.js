@@ -32,7 +32,7 @@ export class Game extends React.Component {
     }
 
     componentDidMount() {
-        get(`${URL}/play`).then( resp =>
+        this.get(`${URL}/play`).then( resp =>
             this.setState({
                 answers: resp.answers,
                 title: resp.title,
