@@ -19,15 +19,13 @@ class App extends Component {
                     <div className="App-header">
                         <img src={logo} className="App-logo" alt="logo" />
                         <h1>Guess the movie</h1>
-                    </div>
-                    <p className="App-intro">
                         <h2><Link to="/game">JOUER</Link></h2>
                         <h2><Link to="/score">SCORE</Link></h2>
                         <h2><Link to="/exit">EXIT</Link></h2>
+                    </div>
+                    <div className="App-intro">
                         <Route exact path="/game" component={Game}/>
-                        <Route exact path="/score" component={Score}/>
-                        <Route exact path="/exit" component={Exit}/>
-                    </p>
+                    </div>
                 </div>
             </Router>
         );

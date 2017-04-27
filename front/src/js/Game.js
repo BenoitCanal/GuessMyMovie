@@ -1,7 +1,8 @@
 import React from 'react'
+import {GameModeSelector} from "./GameModeSelector";
 
 export const Game = () => (
     <div>
-        <h2>GAME</h2>
+        <GameModeSelector/>
     </div>
 )
