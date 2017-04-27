@@ -1,5 +1,7 @@
 import React from 'react'
 
+import logo from '../assets/img/logoWhite.png';
+
 export let rankings = [
     ["Franck Cadoret", 100],
     ["Metin Osman", 18],
@@ -23,11 +25,19 @@ export const Ranking = () => {
         </tr>
     ));
 
-    return(<table className="Ranking_table">
-        <tr>
-            <th className="Ranking_joueur">Joueur</th>
-            <th>Score</th>
-        </tr>
-        {trr}
-    </table>);
+    return(
+        <section className="Ranking menuScreen">
+            <header className="Header">
+                <img src={logo} className="Header_logo" alt="logo" />
+            </header>
+            <h1>Meilleurs scores</h1>
+            <table className="Ranking_table">
+                <tr>
+                    <th className="Ranking_joueur">Joueur</th>
+                    <th>Score</th>
+                </tr>
+                {trr}
+            </table>
+        </section>
+    );
 }

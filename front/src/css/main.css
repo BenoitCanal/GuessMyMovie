@@ -230,7 +230,7 @@ hr:before {
   pointer-events: none;
   z-index: -1; }
 
-.Home_menu, .GameModeSelector_menu, .ThemeSelector_menu, .Game_answers {
+.Home_menu, .GameModeSelector_menu, .ThemeSelector_menu, .EndOfGame_menu, .Game_answers {
   width: 100%;
   bottom: 0;
   position: absolute;
@@ -249,25 +249,15 @@ hr:before {
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff000000', endColorstr='#000000',GradientType=0 );
   /* IE6-9 */ }
-<<<<<<< HEAD
 
-.Home_menu-element, .GameModeSelector_menu-element, .ThemeSelector_menu-element, .Game_answers-element {
+.Home_menu-element, .GameModeSelector_menu-element, .ThemeSelector_menu-element, .EndOfGame_menu-element, .Game_answers-element {
   background: #26A8FF;
   color: white;
   width: 80%;
   padding: 0.4em; }
 
-.Home_menu-element:not(:last-of-type), .GameModeSelector_menu-element:not(:last-of-type), .ThemeSelector_menu-element:not(:last-of-type), .Game_answers-element:not(:last-of-type) {
+.Home_menu-element:not(:last-of-type), .GameModeSelector_menu-element:not(:last-of-type), .ThemeSelector_menu-element:not(:last-of-type), .EndOfGame_menu-element:not(:last-of-type), .Game_answers-element:not(:last-of-type) {
   margin-bottom: 1em; }
-=======
-  .Home_menu-element, .GameModeSelector_menu-element, .ThemeSelector_menu-element {
-    background: #26A8FF;
-    color: white;
-    width: 80%;
-    padding: 0.4em; }
-    .Home_menu-element:not(:last-of-type), .GameModeSelector_menu-element:not(:last-of-type), .ThemeSelector_menu-element:not(:last-of-type) {
-      margin-bottom: 1em; }
->>>>>>> master
 
 /*=======================*/
 /* HOME SCREEN
@@ -281,24 +271,17 @@ hr:before {
 
 .Home_menu-element {
   height: 50px; }
-  .Home_menu-element a {
-    line-height: 2.5em; }
 
-.GameModeSelector_menu, .ThemeSelector_menu {
+.Home_menu-element a {
+  line-height: 2.5em; }
+
+.GameModeSelector_menu, .ThemeSelector_menu, .EndOfGame_menu {
   padding-bottom: 4em; }
-  .GameModeSelector_menu-element, .ThemeSelector_menu-element {
-    height: 75px; }
-    .GameModeSelector_menu-element a, .ThemeSelector_menu-element a {
-      line-height: 4em; }
 
-/*=======================*/
-/* RANKING SCREEN
-/*=======================*/
-.Ranking_table {
-  margin: auto; }
+.GameModeSelector_menu-element, .ThemeSelector_menu-element, .EndOfGame_menu-element {
+  height: 75px; }
 
-<<<<<<< HEAD
-.GameModeSelector_menu-element a, .ThemeSelector_menu-element a {
+.GameModeSelector_menu-element a, .ThemeSelector_menu-element a, .EndOfGame_menu-element a {
   line-height: 4em; }
 
 /*=======================*/
@@ -373,7 +356,12 @@ hr:before {
   background: url(../assets/img/logoWhite.png);
   height: 65%;
   background-size: contain; }
-=======
-.Ranking_joueur {
-  text-align: left; }
->>>>>>> master
+
+.EndOfGame_menu {
+  padding-bottom: 2em; }
+
+.EndOfGame_menu-element {
+  height: 50px; }
+
+.EndOfGame_menu-element a {
+  line-height: 2.5em; }

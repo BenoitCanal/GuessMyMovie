@@ -298,7 +298,7 @@ hr:before { right: -8.5px; }
   }
 }
 
-.GameModeSelector, .ThemeSelector {
+.GameModeSelector, .ThemeSelector, .EndOfGame { 
   &_menu {
     @extend %menu;
       padding-bottom: 4em;
@@ -401,4 +401,19 @@ hr:before { right: -8.5px; }
     height: 65%;
     background-size: contain;
   }
-}
+} 
+ 
+.EndOfGame { 
+  &_menu { 
+    padding-bottom: 2em; 
+     
+    &-element { 
+      height: 50px; 
+ 
+      & a { 
+        line-height: 2.5em; 
+      } 
+       
+    } 
+  }
+} 
