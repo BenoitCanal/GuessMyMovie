@@ -114,8 +114,7 @@ html {
   font-family: "CanalDemiRomain", sans-serif;
   font-weight: 300;
   text-transform: uppercase;
-  color: #FFF;
-  font-style: italic; }
+  color: #FFF; }
 
 body {
   transform-origin: 50%;
@@ -126,7 +125,10 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-  cursor: auto; }
+  cursor: auto;
+  display: block;
+  width: 100%;
+  height: 100%; }
 
 hr {
   position: relative;
@@ -191,14 +193,13 @@ hr:before {
   font-size: .75em;
   margin-right: .5em; }
 
-/*@media (orientation: portrait) {
-    body {
-        background: #000 url(../assets/img/rotateDevice.png) no-repeat 50% 50%;
-        background-size: 30%;
-    }
+@media (orientation: landscape) {
+  body {
+    background: #000 url(../assets/img/rotateDevice.png) no-repeat 50% 50%;
+    background-size: 30%; }
+  .App {
+    visibility: hidden; } }
 
-    #app { visibility: hidden; }
-}*/
 /*=======================*/
 /* COMPONENTS
 /*=======================*/
@@ -245,7 +246,7 @@ hr:before {
     height: 100%;
     background: url(../assets/img/wallpaper.png);
     background-size: contain;
-    opacity: 0.15;
+    opacity: 0.35;
     left: 0;
     top: 0;
     pointer-events: none;
@@ -260,10 +261,24 @@ hr:before {
     bottom: 0;
     position: absolute;
     height: 250px;
-    background: #ECECEC;
     color: black;
-    padding: 2em; }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#ffffff+0,ffffff+100&0+0,1+100 */
+    background: -moz-linear-gradient(top, transparent 0%, black 25%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, transparent 0%, black 25%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, transparent 0%, black 25%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff000000', endColorstr='#000000',GradientType=0 );
+    /* IE6-9 */ }
     .Home_menu-element {
-      padding: 0.5em;
-      border: 2px solid black;
-      margin-bottom: 1em; }
+      background: #26A8FF;
+      color: white;
+      width: 80%;
+      padding: 0.4em; }
+      .Home_menu-element:not(:last-of-type) {
+        margin-bottom: 1em; }
