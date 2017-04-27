@@ -1,7 +1,9 @@
 import React from 'react'
 import {Link, Route} from "react-router-dom";
+import {rankings} from "./Ranking";
 
 export const EndOfGame = (props) => {
+    rankings.push(["Demo", props.score]);
     console.log(props.history);
     return (
         <div>
