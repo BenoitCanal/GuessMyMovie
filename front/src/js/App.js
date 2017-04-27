@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import logo from '../assets/img/LOGO GTM NOIR SANS FOND.png';
+import logo from '../assets/img/logoBlack.png';
 import '../css/App.css';
 
 import {
