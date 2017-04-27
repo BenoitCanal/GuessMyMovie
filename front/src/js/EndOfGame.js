@@ -1,8 +1,9 @@
 import React from 'react'
 import {Link, Route} from "react-router-dom";
+import {rankings} from "./Ranking";
 
 export const EndOfGame = (props) => {
-
+    rankings.push(["Demo", props.score]);
     var rows = [];
     props.history.map(function(answer) {
         rows.push(
